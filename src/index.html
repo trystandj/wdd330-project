@@ -1,46 +1,260 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sleep Outside | Home</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/style.css" />
-    <script src="js/main.js" type="module" defer></script>
-  </head>
 
-  <body>
-    <header class="header" id="header"></header>
-    <main class="">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sleep Outside | Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <script src="js/main.js" type="module" defer></script>
+</head>
 
-      <section class="home-start">
-        <div class="container-home">
-          <div class="home-content">
-            
+<body>
+  <header class="header" id="header"></header>
 
-            <div>
-              <h3 class="fw-bold">Purpose</h3>
-              <p class="text-muted">Subheader</p>
-              <p>To bring the left and right columns closer together in a Bootstrap layout, you can reduce the horizontal space between them, which is controlled by Bootstrap’s gutter system. The simplest way is to use the gx-* classes directly on your .row. For example, adding gx-0 completely removes the horizontal gutter, bringing the columns tight together. If you still want a little space, try gx-1 or gx-2 instead.</p>
-              <button class="btn btn-outline-dark">Subscribe</button>
+  <main class="">
+    <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1"
+          aria-current="true"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <svg aria-hidden="true" class="bd-placeholder-img" height="100%" preserveAspectRatio="xMidYMid slice"
+            width="100%" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect>
+          </svg>
+          <div class="container">
+            <div class="carousel-caption text-start">
+              <h1>Example headline.</h1>
+              <p class="opacity-75">
+                Some representative placeholder content for the first slide of
+                the carousel.
+              </p>
+              <p>
+                <a class="btn btn-lg btn-primary" href="#">Sign up today</a>
+              </p>
             </div>
-
-
-            <div>
-              
-                <img src="/images/Breaking-News.jpg" alt="Placeholder Icon" />
-              
-            </div>
-
           </div>
         </div>
+        <div class="carousel-item">
+          <svg aria-hidden="true" class="bd-placeholder-img" height="100%" preserveAspectRatio="xMidYMid slice"
+            width="100%" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect>
+          </svg>
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Another example headline.</h1>
+              <p>
+                Some representative placeholder content for the second slide
+                of the carousel.
+              </p>
+              <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <svg aria-hidden="true" class="bd-placeholder-img" height="100%" preserveAspectRatio="xMidYMid slice"
+            width="100%" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect>
+          </svg>
+          <div class="container">
+            <div class="carousel-caption text-end">
+              <h1>One more for good measure.</h1>
+              <p>
+                Some representative placeholder content for the third slide of
+                this carousel.
+              </p>
+              <p>
+                <a class="btn btn-lg btn-primary" href="#">Browse gallery</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+
+    <section class="home-start">
+      <div class="container-home">
+        <div class="home-content">
+          <div>
+            <h3 class="fw-bold">Purpose</h3>
+            <p class="text-muted">Subheader</p>
+            <p>
+              To bring the left and right columns closer together in a
+              Bootstrap layout, you can reduce the horizontal space between
+              them, which is controlled by Bootstrap’s gutter system. The
+              simplest way is to use the gx-* classes directly on your .row.
+              For example, adding gx-0 completely removes the horizontal
+              gutter, bringing the columns tight together. If you still want a
+              little space, try gx-1 or gx-2 instead.
+            </p>
+            <button class="btn btn-outline-dark">Subscribe</button>
+          </div>
+
+
+
+
+          <div>
+            <img src="/images/Breaking-News.jpg" alt="Placeholder Icon" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="home-weather">
+      <div class="container-home">
+        <div class="uppder-weather">
+          <div></div>
+        </div>
+        <div class="lower-weather">
+          <div class="weather"></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
     </section>
 
-      
-    </main>
-    <footer id="footer">
+    <!-- Weather Section -->
+     <section class="weather-section">
+    <div class="d-flex justify-content-center align-items-center">
+      <h2>Weather</h2>
+    </div>
+    <div class="weather-row">
 
-    </footer>
-  </body>
-  
+      <div class="col-lg-4">
+        <svg aria-label="Placeholder" class="bd-placeholder-img rounded-circle" height="140"
+          preserveAspectRatio="xMidYMid slice" role="img" width="140" xmlns="http://www.w3.org/2000/svg">
+          <title>Placeholder</title>
+          <rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect>
+        </svg>
+        <h2 class="fw-normal">Heading</h2>
+        <p>
+          Some representative placeholder content for the three columns of
+          text below the carousel. This is the first column.
+        </p>
+
+      </div>
+
+      <div class="col-lg-4">
+        <svg aria-label="Placeholder" class="bd-placeholder-img rounded-circle" height="140"
+          preserveAspectRatio="xMidYMid slice" role="img" width="140" xmlns="http://www.w3.org/2000/svg">
+          <title>Placeholder</title>
+          <rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect>
+        </svg>
+        <h2 class="fw-normal">Heading</h2>
+        <p>
+          Another exciting bit of representative placeholder content. This
+          time, we've moved on to the second column.
+        </p>
+
+      </div>
+      <!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <svg aria-label="Placeholder" class="bd-placeholder-img rounded-circle" height="140"
+          preserveAspectRatio="xMidYMid slice" role="img" width="140" xmlns="http://www.w3.org/2000/svg">
+          <title>Placeholder</title>
+          <rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect>
+        </svg>
+        <h2 class="fw-normal">Heading</h2>
+        <p>
+          And lastly this, the third column of representative placeholder
+          content.
+        </p>
+
+      </div>
+
+    </div>
+</section>
+    <!-- Article Section -->
+    <div class="d-flex justify-content-center align-items-center " style="margin-top: 40px;">
+      <h2>Articles</h2>
+    </div>
+    <div class="article-cards">
+
+      <div class="card text-center shadow-sm p-3" >
+  <img src="/images/Breaking-News.jpg" class="card-img-top rounded-circle mx-auto d-block mt-3" alt="Image Placeholder" style="width: 80px; height: 80px; object-fit: cover;" />
+  <div class="card-body">
+    <h5 class="card-title fw-bold">Article Title</h5>
+    <p class="text-muted">Subheader</p>
+    <p class="card-text">
+      To bring the left and right columns closer together in a Bootstrap layout...
+    </p>
+    <p class="card-text">Source</p>
+    <p class="text-muted mb-1">Author</p>
+    <p class="text-muted">Date</p>
+    <a href="#" class="btn btn-outline-dark">Read More</a>
+  </div>
+</div>
+      <div class="card text-center shadow-sm p-3" >
+  <img src="/images/Breaking-News.jpg" class="card-img-top rounded-circle mx-auto d-block mt-3" alt="Image Placeholder" style="width: 80px; height: 80px; object-fit: cover;" />
+  <div class="card-body">
+    <h5 class="card-title fw-bold">Article Title</h5>
+    <p class="text-muted">Subheader</p>
+    <p class="card-text">
+      To bring the left and right columns closer together in a Bootstrap layout...
+    </p>
+    <p class="card-text">Source</p>
+    <p class="text-muted mb-1">Author</p>
+    <p class="text-muted">Date</p>
+    <a href="#" class="btn btn-outline-dark">Read More</a>
+  </div>
+</div>
+      <div class="card text-center shadow-sm p-3" >
+  <img src="/images/Breaking-News.jpg" class="card-img-top rounded-circle mx-auto d-block mt-3" alt="Image Placeholder" style="width: 80px; height: 80px; object-fit: cover;" />
+  <div class="card-body">
+    <h5 class="card-title fw-bold">Article Title</h5>
+    <p class="text-muted">Subheader</p>
+    <p class="card-text">
+      To bring the left and right columns closer together in a Bootstrap layout...
+    </p>
+    <p class="card-text">Source</p>
+    <p class="text-muted mb-1">Author</p>
+    <p class="text-muted">Date</p>
+    <a href="#" class="btn btn-outline-dark">Read More</a>
+  </div>
+</div>
+    </div>
+
+
+  </section>
+      <div class="d-flex justify-content-center align-items-center" style="margin-top: 80px;">
+      <h2>Subscribe</h2>
+    </div>
+
+  <section class="subscribe">
+
+    <form class="row g-3">
+        <div class="col-md-6">
+    <label for="inputName4" class="form-label">Name</label>
+    <input type="text" class="form-control" id="inputName4">
+  </div>
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label">Email</label>
+    <input type="email" class="form-control" id="inputEmail4">
+  </div>
+
+
+  <div class="subscribe-button">
+
+    <a href="#" class="btn btn-outline-dark ">Subscribe</a>
+  </div>
+</form>
+  </section>
+
+  </main>
+  <footer id="footer"></footer>
+</body>
+
 </html>
