@@ -46,14 +46,11 @@ body {
 }
 
 .navbar a:hover {
-  color: var(--color-secondary);
+  text-decoration: underline;
+  color: var(--color-primary);
+
 }
 
-.navbar li {
-  list-style: none;
-  
-  
-}
 
 
 .home-start {
