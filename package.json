@@ -31,5 +31,17 @@
     "last 3 opera versions",
     "last 3 ios_saf versions",
     "last 3 safari versions"
-  ]
+  ],
+  "dependencies": {
+    "bootstrap": "^5.3.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trystandj/wdd330-project.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/trystandj/wdd330-project/issues"
+  },
+  "homepage": "https://github.com/trystandj/wdd330-project#readme"
 }
