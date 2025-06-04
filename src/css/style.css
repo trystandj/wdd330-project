@@ -183,6 +183,11 @@ footer p {
   width: 100vw;
 }
 
+.weather-section {
+  background-color: var(--color-secondary);
+  color: white;
+  padding: 10px;
+}
 .weather-row {
   display: flex;
   flex-direction: row;
@@ -198,7 +203,7 @@ footer p {
 
 .weather-row > div {
   width: 100%;
-  max-width: 400px;
+  max-width: 20vw;
   
 }
 .col-lg-4 {
