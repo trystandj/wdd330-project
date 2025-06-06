@@ -31,13 +31,10 @@ async getCurrent() {
 
     const data = await res.json();
 
-    // Match humidity by timestamp
-    const timeIndex = data.hourly.time.findIndex(t => t === data.current_weather.time);
-    const humidity = data.hourly.relative_humidity_2m[timeIndex];
 
     return {
       temperature: data.current_weather.temperature,
-      humidity,
+      humidity: data.hourly.relative_humidity_2m[0],
       rain: data.daily.precipitation_sum[0] // today's total
     };
   } catch (err) {

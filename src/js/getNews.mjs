@@ -1,5 +1,5 @@
 const apiKey = import.meta.env.VITE_GNEWS_API_KEY;
-// const apiKey = '90832db1e750c851833f8de3b17f6d59';
+
 
 function convertToJson(res) {
   if (res.ok) {

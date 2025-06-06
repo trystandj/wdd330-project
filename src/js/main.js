@@ -60,20 +60,24 @@ function showCurrentWeather(current) {
   container.innerHTML = ''; // Clear existing
 
   const cardData = [
-    {
-      title: 'Temperature',
-      value: `${current.temperature} °F`,
-      description: 'Current temperature at your location.'
-    },
+
     {
       title: 'Humidity',
       value: `${current.humidity} %`,
-      description: 'Current relative humidity.'
+      description: 'Current relative humidity.',
+      Img: '../images/humidity.png'
+    },
+        {
+      title: 'Temperature',
+      value: `${current.temperature} °F`,
+      description: 'Current temperature at your location.',
+      Img: '../images/cloud.png'
     },
     {
       title: 'Rain Today',
       value: `${current.rain} mm`,
-      description: 'Total expected precipitation today.'
+      description: 'Total expected precipitation today.',
+      Img: '../images/breeze.png'
     }
   ];
 
@@ -82,9 +86,7 @@ function showCurrentWeather(current) {
     col.className = 'col-lg-4 text-center';
 
     col.innerHTML = `
-      <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg">
-        <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
-      </svg>
+      <img src="${data.Img}" class="bd-placeholder-img rounded-circle" width="140" height="140" alt="${data.title}">
       <h2 class="fw-normal">${data.title}</h2>
       <p class="lead">${data.value}</p>
       <p>${data.description}</p>

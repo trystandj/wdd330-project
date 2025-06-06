@@ -253,3 +253,11 @@ footer img {
   text-align: center;
   padding: 10px 20px;
 }
+
+
+.carousel-item .container > div {
+  background-color: rgba(0, 0, 0, 0.4); /* black with 60% opacity */
+  color: white;
+  padding: 12px 20px;
+  border-radius: 12px;
+}
