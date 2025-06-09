@@ -11,3 +11,4 @@
 - `npm run build` to build final files when you are ready to turn in.
 
 
+### Link to site: https://newsyproject.netlify.app/

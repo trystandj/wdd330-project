@@ -86,7 +86,7 @@ function showCurrentWeather(current) {
     col.className = 'col-lg-4 text-center';
 
     col.innerHTML = `
-      <img src="${data.Img}" class="bd-placeholder-img rounded-circle" width="140" height="140" alt="${data.title}">
+      <img src="${data.Img}" class="bd-placeholder-img rounded-circle" width="140px" height="140px" alt="${data.title}">
       <h2 class="fw-normal">${data.title}</h2>
       <p class="lead">${data.value}</p>
       <p>${data.description}</p>
