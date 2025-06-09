@@ -51,10 +51,10 @@ export async function HeadLineImage(articles) {
   items.forEach((container, index) => {
 
     const svgElement = container.querySelector('svg');
-    svgElement.innerHTML = ''; // Clear previous content
+    svgElement.innerHTML = '';
 
     const article = articles[index];
-    if (!article) return; // Skip if not enough articles
+    if (!article) return; 
 
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     svg.setAttribute('aria-hidden', 'true');
