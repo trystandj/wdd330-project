@@ -1,23 +1,22 @@
-import { loadHeaderFooter, getParam } from "./utils.mjs";
-import { changeHeadlineSlider, HeadLineImage } from "./home.mjs";
-import fetchNews from "./getNews.mjs";
-import FetchWeather from "./getWeather.mjs";
-import GetWord from "./GetWord.mjs";
+import { loadHeaderFooter, getParam } from './utils.mjs';
+import { changeHeadlineSlider, HeadLineImage } from './utils.mjs';
+import fetchNews from './getNews.mjs';
+import FetchWeather from './getWeather.mjs';
+import GetWord from './getWord.mjs';
 
 loadHeaderFooter();
 linkParam();
 changeHeadlineSlider();
-const fetcher = new GetWord();
 
-window.addEventListener("DOMContentLoaded", async () => {
-  let category = getParam("category");
 
-  
+window.addEventListener('DOMContentLoaded', async () => {
+  let category = getParam('category');
+
   if (!category) {
     const url = new URL(window.location);
-    url.searchParams.set("category", "general");
-    window.location.href = url; 
-    return; 
+    url.searchParams.set('category', 'general');
+    window.location.href = url;
+    return;
   }
 
   const newsFetcher = new fetchNews();
@@ -26,50 +25,56 @@ window.addEventListener("DOMContentLoaded", async () => {
     displayArticles(articles);
     HeadLineImage(articles);
   } catch (err) {
-    console.error("Failed to load articles:", err);
+    console.error('Failed to load articles:', err);
   }
 });
 
 function linkParam() {
-  document.querySelectorAll(".category-link").forEach((link) => {
-    link.addEventListener("click", function (e) {
+  document.querySelectorAll('.category-link').forEach((link) => {
+    link.addEventListener('click', function (e) {
       e.preventDefault();
       const category = this.dataset.category;
 
       const url = new URL(window.location);
-      url.searchParams.set("category", category);
+      url.searchParams.set('category', category);
       window.location.href = url;
     });
   });
 }
 
 function displayArticles(articles) {
-  const container = document.getElementById("news-container");
-  container.innerHTML = "";
+  const container = document.getElementById('news-container');
+  container.innerHTML = '';
 
   articles.forEach((article) => {
-const card = document.createElement("div");
-card.className = "card mb-3 shadow-sm";
-card.style.maxWidth = "100%";
-card.innerHTML = `
+    const card = document.createElement('div');
+    card.className = 'card mb-3 shadow-sm';
+    card.style.maxWidth = '100%';
+    card.innerHTML = `
   <div class="row g-0">
     <div class="col-md-4 d-flex align-items-center justify-content-center p-2">
       <img
-        src="${article.image || "/images/Breaking-News.jpg"}"
+        src="${article.image || '/images/Breaking-News.jpg'}"
         class="img-fluid rounded-start"
         alt="News Image"
-        style="height: 100px; width: 100px; object-fit: cover;"
+        style="height: 200px; width: 200px; object-fit: cover;"
       />
     </div>
     <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title fw-bold">${article.title}</h5>
         <p class="card-text">
-          ${article.description || ""}
+          ${article.description || ''}
+        </p>
+            <p class="card-text">
+          ${article.content || ''}
         </p>
         <p class="card-text">
-          <small class="text-muted">${article.source.name || "Unknown Source"} | 
+          <small class="text-muted">${article.source.name || 'Unknown Source'} | 
           ${new Date(article.publishedAt).toLocaleDateString()}</small>
+        </p>
+                <p class="card-text">
+          <small class="text-muted">${article.source.url || 'Unknown Source'}</small>
         </p>
         <a href="${article.url}" target="_blank" class="btn btn-sm btn-outline-dark">Read More</a>
       </div>
@@ -80,10 +85,6 @@ card.innerHTML = `
     container.appendChild(card);
   });
 }
-
-
-
-
 
 const weather = new FetchWeather();
 
@@ -96,33 +97,32 @@ async function main() {
 }
 
 function showCurrentWeather(current) {
-  const container = document.querySelector(".weather");
-  container.innerHTML = ""; // Clear existing
+  const container = document.querySelector('.weather');
+  container.innerHTML = ''; // Clear existing
 
   const cardData = [
     {
-      title: "Humidity",
+      title: 'Humidity',
       value: `${current.humidity} %`,
-      description: "Current relative humidity.",
-      Img: "../images/humidity.png",
+      description: 'Current relative humidity.',
+      Img: '../images/humidity.png',
     },
     {
-      title: "Temperature",
+      title: 'Temperature',
       value: `${current.temperature} °F`,
-      description: "Current temperature at your location.",
-      Img: "../images/cloud.png",
+      description: 'Current temperature at your location.',
+      Img: '../images/cloud.png',
     },
     {
-      title: "Rain Today",
+      title: 'Rain Today',
       value: `${current.rain} mm`,
-      description: "Total expected precipitation today.",
-      Img: "../images/breeze.png",
+      description: 'Total expected precipitation today.',
+      Img: '../images/breeze.png',
     },
   ];
 
   cardData.forEach((data) => {
-    const col = document.createElement("div");
-   
+    const col = document.createElement('div');
 
     col.innerHTML = `
     <h2 >${data.title}</h2>
@@ -136,31 +136,31 @@ function showCurrentWeather(current) {
   });
 }
 
-
 main();
 
 async function lookupWord() {
-    const input = document.getElementById("wordInput").value.trim();
-    if (!input) return;
-
-    const fetcher = new GetWord();
-    const result = await fetcher.GetTheWord(input);
-    
-    document.querySelector(".word").textContent = result.wordName;
-    document.querySelector(".definition").textContent = result.meaning;
-    document.getElementById("word-box").style.display = "block";
-  }
-
-document.getElementById("get-def").addEventListener("click", async function (e) {
-  e.preventDefault();
-
-  const input = document.getElementById("wordInput").value.trim();
+  const input = document.getElementById('wordInput').value.trim();
   if (!input) return;
 
   const fetcher = new GetWord();
   const result = await fetcher.GetTheWord(input);
 
-  
-  document.querySelector(".definition").textContent = result.meaning;
-  document.getElementById("word-box").style.display = "block";
-});
+  document.querySelector('.word').textContent = result.wordName;
+  document.querySelector('.definition').textContent = result.meaning;
+  document.getElementById('word-box').style.display = 'block';
+}
+
+document
+  .getElementById('get-def')
+  .addEventListener('click', async function (e) {
+    e.preventDefault();
+
+    const input = document.getElementById('wordInput').value.trim();
+    if (!input) return;
+
+    const fetcher = new GetWord();
+    const result = await fetcher.GetTheWord(input);
+
+    document.querySelector('.definition').textContent = result.meaning;
+    document.getElementById('word-box').style.display = 'block';
+  });

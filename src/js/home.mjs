@@ -61,6 +61,7 @@ export async function HeadLineImage(articles) {
     svg.setAttribute('class', 'bd-placeholder-img mb-3');
     svg.setAttribute('width', '100%');
     svg.setAttribute('height', '100%');
+    
     svg.setAttribute('preserveAspectRatio', 'xMidYMid slice');
     svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
 
@@ -71,6 +72,7 @@ export async function HeadLineImage(articles) {
       img.setAttributeNS(null, 'href', article.image);
       img.setAttribute('width', '100%');
       img.setAttribute('height', '100%');
+      
       img.setAttribute('preserveAspectRatio', 'xMidYMid slice');
       svg.appendChild(img);
     }
