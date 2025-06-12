@@ -341,3 +341,23 @@ footer img {
 .bd-placeholder-img image {
   object-fit: cover;
 }
+
+
+.weather-scroll-wrapper {
+  white-space: nowrap;
+  padding-bottom: 1rem;
+}
+
+.weather-row-other > div {
+  min-width: 250px;
+  margin-right: 1rem;
+  flex-shrink: 0;
+  margin-top: 1rem;
+}
+
+
+
+.weathercard {
+  display: flex;
+  align-items: center;
+}

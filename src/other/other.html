@@ -17,19 +17,24 @@
    <section class="container py-4">
     <div class="p-5 mb-4 bg-body-tertiary rounded-3">
         <div>
-            <h1>Jumbo</h1>
-            <p>Cotent</p>
-            <button class="btn btn-primary btn-lg">Read More</button>
+            <h1>View Saved Articles</h1>
+            <p>Wondering whre those saved articles went? Click below to view them! Don't be shy to save more and contiue to use our site!</p>
+            <button class="btn btn-primary btn-lg" id="displayArticles">Show Saved Articles</button>
         </div>
     </div>
+
+    <div id="news-container" class="mt-4"></div>
+
     <div class="row align-items-md-stretch">
         <div class="col-md-6">
             <div class="h-100 p-5 text-bg-dark rounded-3">
-            <h2>Second Box</h2>
-            <p>Cotent</p>
-            <button class="btn btn-primary btn-lg">Read More</button>
+            <h2>Weather Forecast</h2>
+            <p>Need the weather forecast? Don't worry, we got you covered.</p>
+            <button class="btn btn-primary btn-lg" id="displayWeather">Read More</button>
             </div>
+            
         </div>
+        
         <div class="col-md-6">
             <div class="h-100 p-5 bg-body-tertiary border rounded-3">
             <h2>Second Box</h2>
@@ -38,6 +43,9 @@
             </div>
         </div>
     </div>
+    <div class="weather-scroll-wrapper overflow-auto">
+  <div class="weather-row-other d-flex flex-nowrap =" id="weather-row-other"></div>
+</div>
    </section>
   </main>
 

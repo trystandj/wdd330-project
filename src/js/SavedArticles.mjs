@@ -1,14 +1,14 @@
 import { getLocalStorage, loadHeaderFooter } from "./utils.mjs";
 
 export default class ArticleDetails {
-  constructor(articles, articleId) {
-    this.articles = articles; // array of articles (from saved JSON or localStorage)
-    this.articleId = articleId; // ID or slug to identify the specific article
+  constructor(articles, articleURL) {
+    this.articles = articles; 
+    this.articleURL = articleURL; 
     this.article = {};
   }
 
   async init() {
-    this.article = this.findArticleById(this.articleId);
+    this.article = this.findArticleById(this.articleURL);
     if (!this.article) {
       document.getElementById('news-container').textContent = "Article not found.";
       return;
@@ -17,9 +17,9 @@ export default class ArticleDetails {
     this.renderArticleDetails();
   }
 
-  findArticleById(id) {
-    // assuming the article has an id or some unique key to match
-    return this.articles.find(article => article.id === id || article.slug === id);
+  findArticleById(url) {
+    
+    return this.articles.find(article => article.url === url || article.slug === url);
   }
 
   renderArticleDetails() {

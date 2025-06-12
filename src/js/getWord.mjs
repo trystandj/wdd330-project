@@ -7,7 +7,7 @@ export default class GetWord {
 
       const data = await response.json();
       const wordName = data[0].word;
-      const meaning = data[0].meanings[0].definitions[0] ;
+      const meaning = data[0].meanings[0].definitions[0];
 
     
       return { wordName, meaning };

@@ -55,7 +55,7 @@ async function main() {
 
 function showCurrentWeather(current) {
   const container = document.querySelector('.weather-row');
-  container.innerHTML = ''; // Clear existing
+  container.innerHTML = ''; 
 
   const cardData = [
     {
@@ -93,5 +93,4 @@ function showCurrentWeather(current) {
   });
 }
 
-// Run when the page loads
 main();
