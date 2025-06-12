@@ -5,13 +5,17 @@ loadHeaderFooter();
 
 let articlesVisible = false; 
 let weatherVisible = false; 
+let subVisible = false; 
 
 document.addEventListener('DOMContentLoaded', () => {
   const viewButton = document.getElementById('displayArticles');
   const container = document.getElementById('news-container');
-  const weatherButton = document.getElementById('displayWeather')
-  const weatherContainer = document.getElementById('weather-row-other')
+  const weatherButton = document.getElementById('displayWeather');
+  const weatherContainer = document.getElementById('weather-row-other');
+  const subButton = document.getElementById('subscriptionBTN');
+  const subscriptionContainer = document.getElementById('subscription');
 
+  // Articles Toggle
   viewButton.addEventListener('click', () => {
     const articles = getLocalStorage('saved-articles') || [];
 
@@ -26,21 +30,52 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-
-    weatherButton.addEventListener('click', () => {
-    
+  // Weather Toggle
+  weatherButton.addEventListener('click', () => {
     if (weatherVisible) {
       weatherContainer.innerHTML = '';
       weatherVisible = false;
+      
       weatherButton.textContent = 'Show Weather';
     } else {
-      main();
+
+          if (subVisible) {
+      subscriptionContainer.innerHTML = '';
+      subVisible = false;
+      subButton.textContent = 'Sign Up!';
+    }
       weatherVisible = true;
+      
+      main();
+      renderWeather(); 
+      
+      
       weatherButton.textContent = 'Hide Weather';
     }
   });
 
-  document.getElementById('news-container').addEventListener('click', (event) => {
+  // Subscription Toggle
+  subButton.addEventListener('click', () => {
+    if (subVisible) {
+      subscriptionContainer.innerHTML = '';
+      subVisible = false;
+      weatherVisible = true;
+      subButton.textContent = 'Sign Up!';
+    } else {
+        if (weatherVisible) {
+      weatherContainer.innerHTML = '';
+      weatherVisible = false;
+      weatherButton.textContent = 'Show Weather';
+    }
+      displaySubscribeForm(); 
+      subVisible = true;
+      
+      subButton.textContent = 'Hide Sign Up';
+    }
+  });
+
+  // Remove Saved Article
+  container.addEventListener('click', (event) => {
     if (event.target.classList.contains('remove-btn')) {
       const index = parseInt(event.target.getAttribute('data-index'));
       RemoveSaveArticleListener(index);
@@ -92,3 +127,45 @@ function showCurrentWeather(forecast) {
 
 
 
+function displaySubscribeForm() {
+  const container = document.getElementById('subscription');
+
+  container.innerHTML = `
+  <div
+        class="d-flex justify-content-center align-items-center"
+        style="margin-top: 80px"
+      >
+        <h2>Subscribe</h2>
+      </div>
+    <section class="subscribe">
+    
+      <form class="row g-3">
+        <div class="col-md-6">
+          <label for="inputName4" class="form-label">Name</label>
+          <input type="text" class="form-control" id="inputName4" />
+        </div>
+        <div class="col-md-6">
+          <label for="inputEmail4" class="form-label">Email</label>
+          <input type="email" class="form-control" id="inputEmail4" />
+        </div>
+        <div class="subscribe-button">
+          <a href="#" class="btn btn-outline-dark" id="subscribeBtn">Subscribe</a>
+        </div>
+      </form>
+    </section>
+  `;
+
+
+  document.getElementById('subscribeBtn').addEventListener('click', function (e) {
+    e.preventDefault(); 
+    const name = document.getElementById('inputName4').value.trim();
+    const email = document.getElementById('inputEmail4').value.trim();
+
+    if (name && email) {
+      alert(`Subscribed successfully!\nName: ${name}\nEmail: ${email}`);
+      
+    } else {
+      alert("Please enter both name and email.");
+    }
+  });
+}

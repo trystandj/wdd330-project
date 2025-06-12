@@ -361,3 +361,8 @@ footer img {
   display: flex;
   align-items: center;
 }
+
+.subscription  {
+   
+  flex-direction: column;
+}
