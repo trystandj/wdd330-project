@@ -32,10 +32,10 @@ function displayArticles(articles) {
       />
       <div class="card-body">
         <h5 class="card-title fw-bold">${article.title}</h5>
-        <p class="text-muted">${article.source.name || 'Unknown Source'}</p>
+        <p >${article.source.name || 'Unknown Source'}</p>
         <p class="card-text">${article.description || ''}</p>
-        <p class="text-muted mb-1">${article.source.url || 'Unknown Author'}</p>
-        <p class="text-muted">${new Date(article.publishedAt).toLocaleDateString()}</p>
+        <p class=mb-1">${article.source.url || 'Unknown Author'}</p>
+        <p >${new Date(article.publishedAt).toLocaleDateString()}</p>
         <a href="${article.url}" target="_blank" class="btn btn-outline-dark">Read More</a>
       </div>
     `;

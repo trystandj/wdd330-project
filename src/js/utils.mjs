@@ -142,7 +142,7 @@ export function displayArticles(articles) {
         <div class="col-md-4 d-flex align-items-center justify-content-center p-2">
           <img
             src="${article.image || '/images/Breaking-News.jpg'}"
-            class="img-fluid rounded-start"
+            
             alt="News Image"
             style="height: 200px; width: 200px; object-fit: cover;"
           />
@@ -150,13 +150,13 @@ export function displayArticles(articles) {
         <div class="col-md-8">
           <div class="card-body">
             <h5 class="card-title fw-bold">${article.title}</h5>
-            <p class="card-text">${article.description || ''}</p>
-            <p class="card-text">${article.content || ''}</p>
-            <p class="card-text">
+            <p>${article.description || ''}</p>
+            <p>${article.content || ''}</p>
+            <p>
               <small class="text-muted">${article.source.name || 'Unknown Source'} | 
               ${new Date(article.publishedAt).toLocaleDateString()}</small>
             </p>
-            <p class="card-text">
+            <p>
               <small class="text-muted">${article.source.url || 'Unknown Source'}</small>
             </p>
             <a href="${article.url}" target="_blank" class="btn btn-sm btn-outline-dark">Read More</a>
@@ -193,9 +193,9 @@ export function displaySavedArticles(articles) {
         <div class="col-md-8">
           <div class="card-body">
             <h5 class="card-title fw-bold">${article.title}</h5>
-            <p class="card-text">${article.description || ''}</p>
-            <p class="card-text">${article.content || ''}</p>
-            <p class="card-text">
+            <p>${article.description || ''}</p>
+            <p>${article.content || ''}</p>
+            <p>
               <small class="text-muted">${article.source.name || 'Unknown Source'} | 
               ${new Date(article.publishedAt).toLocaleDateString()}</small>
             </p>
