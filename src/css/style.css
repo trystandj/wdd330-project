@@ -2,7 +2,7 @@
   --font-body: "Times New Roman", Times, serif;
   --font-headline: "Merriweather", serif;
   /* colors */
-  --color-primary: #2B5050; /* Caribbean Current */
+  --color-primary: #2b5050; /* Caribbean Current */
   --color-secondary: #284b63; /* Indigo Dye */
   --color-background: #ffffff; /* White */
   --color-font: #353535; /* Jet */
@@ -19,7 +19,7 @@
   padding: 0;
   box-sizing: border-box;
 }
-.card-body p{
+.card-body p {
   color: var(--color-font);
 }
 
@@ -58,8 +58,10 @@ body {
   left: 5px;
 }
 
-.home a:first-child, .article_line a:nth-child(2), .other_line a:nth-child(3) {
-    text-decoration: underline;
+.home a:first-child,
+.article_line a:nth-child(2),
+.other_line a:nth-child(3) {
+  text-decoration: underline;
 }
 
 .navbar a {
@@ -116,7 +118,6 @@ footer img {
 
 .header {
   height: 75px;
-  
 }
 
 .home-start {
@@ -237,7 +238,7 @@ footer img {
 
 .article-cards > div {
   width: 25rem;
-  max-height: 75Vh;
+  max-height: 75vh;
   border: 1px solid #ddd;
   border-radius: 10px;
 }
@@ -348,7 +349,6 @@ footer img {
 .side-bar .about p {
   font-size: 1rem;
   line-height: 1.5;
-
 }
 
 .side-bar .weather {
@@ -373,7 +373,6 @@ footer img {
   object-fit: cover;
 }
 
-
 .weather-scroll-wrapper {
   white-space: nowrap;
   padding-bottom: 1rem;
@@ -386,14 +385,11 @@ footer img {
   margin-top: 1rem;
 }
 
-
-
 .weathercard {
   display: flex;
   align-items: center;
 }
 
-.subscription  {
-   
+.subscription {
   flex-direction: column;
 }

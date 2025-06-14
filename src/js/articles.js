@@ -1,20 +1,25 @@
-import { loadHeaderFooter, getParam } from './utils.mjs';
-import { changeHeadlineSlider, HeadLineImage, getLocalStorage, setLocalStorage, displayArticles } from './utils.mjs';
-import fetchNews from './getNews.mjs';
-import FetchWeather from './getWeather.mjs';
-import GetWord from './getWord.mjs';
+import { loadHeaderFooter, getParam } from "./utils.mjs";
+import {
+  changeHeadlineSlider,
+  HeadLineImage,
+  getLocalStorage,
+  setLocalStorage,
+  displayArticles,
+} from "./utils.mjs";
+import fetchNews from "./getNews.mjs";
+import FetchWeather from "./getWeather.mjs";
+import GetWord from "./getWord.mjs";
 
 loadHeaderFooter();
 linkParam();
 changeHeadlineSlider();
 
-
-window.addEventListener('DOMContentLoaded', async () => {
-  let category = getParam('category');
+window.addEventListener("DOMContentLoaded", async () => {
+  let category = getParam("category");
 
   if (!category) {
     const url = new URL(window.location);
-    url.searchParams.set('category', 'general');
+    url.searchParams.set("category", "general");
     window.location.href = url;
     return;
   }
@@ -25,31 +30,29 @@ window.addEventListener('DOMContentLoaded', async () => {
     displayArticles(articles);
     HeadLineImage(articles);
 
-    document.querySelectorAll('.save-article-btn').forEach((btn) => {
+    document.querySelectorAll(".save-article-btn").forEach((btn) => {
       const index = btn.dataset.index;
-      btn.addEventListener('click', () => addSaveArticleListener(articles[index]));
+      btn.addEventListener("click", () =>
+        addSaveArticleListener(articles[index]),
+      );
     });
   } catch (err) {
-    console.error('Failed to load articles:', err);
+    console.error("Failed to load articles:", err);
   }
 });
 
-
 function linkParam() {
-  document.querySelectorAll('.category-link').forEach((link) => {
-    link.addEventListener('click', function (e) {
+  document.querySelectorAll(".category-link").forEach((link) => {
+    link.addEventListener("click", function (e) {
       e.preventDefault();
       const category = this.dataset.category;
 
       const url = new URL(window.location);
-      url.searchParams.set('category', category);
+      url.searchParams.set("category", category);
       window.location.href = url;
     });
   });
 }
-
-
-
 
 const weather = new FetchWeather();
 
@@ -62,32 +65,32 @@ async function main() {
 }
 
 function showCurrentWeather(current) {
-  const container = document.querySelector('.weather');
-  container.innerHTML = ''; 
+  const container = document.querySelector(".weather");
+  container.innerHTML = "";
 
   const cardData = [
     {
-      title: 'Humidity',
+      title: "Humidity",
       value: `${current.humidity} %`,
-      description: 'Current relative humidity.',
-      Img: '../images/humidity.png',
+      description: "Current relative humidity.",
+      Img: "../images/humidity.png",
     },
     {
-      title: 'Temperature',
+      title: "Temperature",
       value: `${current.temperature} °F`,
-      description: 'Current temperature at your location.',
-      Img: '../images/cloud.png',
+      description: "Current temperature at your location.",
+      Img: "../images/cloud.png",
     },
     {
-      title: 'Rain Today',
+      title: "Rain Today",
       value: `${current.rain} mm`,
-      description: 'Total expected precipitation today.',
-      Img: '../images/breeze.png',
+      description: "Total expected precipitation today.",
+      Img: "../images/breeze.png",
     },
   ];
 
   cardData.forEach((data) => {
-    const col = document.createElement('div');
+    const col = document.createElement("div");
 
     col.innerHTML = `
     <h2 >${data.title}</h2>
@@ -103,49 +106,44 @@ function showCurrentWeather(current) {
 
 main();
 
-
 export function addSaveArticleListener(article) {
-  const savedArticles = getLocalStorage('saved-articles') || [];
+  const savedArticles = getLocalStorage("saved-articles") || [];
 
-  const exists = savedArticles.some(
-    saved => saved.title === article.title
-  );
+  const exists = savedArticles.some((saved) => saved.title === article.title);
 
   if (!exists) {
     savedArticles.push(article);
-    setLocalStorage('saved-articles', savedArticles);
-    alert('Article saved!');
+    setLocalStorage("saved-articles", savedArticles);
+    alert("Article saved!");
   } else {
-    alert('Article already saved.');
+    alert("Article already saved.");
   }
 }
 
-
-
 async function lookupWord() {
-  const input = document.getElementById('wordInput').value.trim();
+  const input = document.getElementById("wordInput").value.trim();
   if (!input) return;
 
   const fetcher = new GetWord();
   const result = await fetcher.GetTheWord(input);
 
-  document.querySelector('.word').textContent = result.wordName;
-  document.querySelector('.definition').textContent = result.meaning;
-  document.getElementById('word-box').style.display = 'block';
+  document.querySelector(".word").textContent = result.wordName;
+  document.querySelector(".definition").textContent = result.meaning;
+  document.getElementById("word-box").style.display = "block";
 }
 
 document
-  .getElementById('get-def')
-  .addEventListener('click', async function (e) {
+  .getElementById("get-def")
+  .addEventListener("click", async function (e) {
     e.preventDefault();
 
-    const input = document.getElementById('wordInput').value.trim();
+    const input = document.getElementById("wordInput").value.trim();
     if (!input) return;
 
     const fetcher = new GetWord();
     const result = await fetcher.GetTheWord(input);
 
-    document.querySelector('.definition').textContent = result.meaning.definition;
-    document.getElementById('word-box').style.display = 'block';
+    document.querySelector(".definition").textContent =
+      result.meaning.definition;
+    document.getElementById("word-box").style.display = "block";
   });
-

@@ -1,98 +1,94 @@
-import { loadHeaderFooter, getLocalStorage, displayArticles, RemoveSaveArticleListener, displaySavedArticles } from './utils.mjs';
-import FetchWeather from './getWeather.mjs';
+import {
+  loadHeaderFooter,
+  getLocalStorage,
+  
+  RemoveSaveArticleListener,
+  displaySavedArticles,
+} from "./utils.mjs";
+import FetchWeather from "./getWeather.mjs";
 
 loadHeaderFooter();
 
-let articlesVisible = false; 
-let weatherVisible = false; 
-let subVisible = false; 
+let articlesVisible = false;
+let weatherVisible = false;
+let subVisible = false;
 
-document.addEventListener('DOMContentLoaded', () => {
-  const viewButton = document.getElementById('displayArticles');
-  const container = document.getElementById('news-container');
-  const weatherButton = document.getElementById('displayWeather');
-  const weatherContainer = document.getElementById('weather-row-other');
-  const subButton = document.getElementById('subscriptionBTN');
-  const subscriptionContainer = document.getElementById('subscription');
+document.addEventListener("DOMContentLoaded", () => {
+  const viewButton = document.getElementById("displayArticles");
+  const container = document.getElementById("news-container");
+  const weatherButton = document.getElementById("displayWeather");
+  const weatherContainer = document.getElementById("weather-row-other");
+  const subButton = document.getElementById("subscriptionBTN");
+  const subscriptionContainer = document.getElementById("subscription");
 
   // Articles Toggle
-  viewButton.addEventListener('click', () => {
-    const articles = getLocalStorage('saved-articles') || [];
+  viewButton.addEventListener("click", () => {
+    const articles = getLocalStorage("saved-articles") || [];
 
     if (articlesVisible) {
-      container.innerHTML = '';
+      container.innerHTML = "";
       articlesVisible = false;
-      viewButton.textContent = 'Show Saved Articles';
+      viewButton.textContent = "Show Saved Articles";
     } else {
       displaySavedArticles(articles);
       articlesVisible = true;
-      viewButton.textContent = 'Hide Saved Articles';
+      viewButton.textContent = "Hide Saved Articles";
     }
   });
 
   // Weather Toggle
-  weatherButton.addEventListener('click', () => {
+  weatherButton.addEventListener("click", () => {
     if (weatherVisible) {
-      weatherContainer.innerHTML = '';
+      weatherContainer.innerHTML = "";
       weatherVisible = false;
-      
-      weatherButton.textContent = 'Show Weather';
-    } else {
 
-          if (subVisible) {
-      subscriptionContainer.innerHTML = '';
-      subVisible = false;
-      subButton.textContent = 'Sign Up!';
-    }
+      weatherButton.textContent = "Show Weather";
+    } else {
+      if (subVisible) {
+        subscriptionContainer.innerHTML = "";
+        subVisible = false;
+        subButton.textContent = "Sign Up!";
+      }
       weatherVisible = true;
-      
+
       main();
-      renderWeather(); 
       
-      
-      weatherButton.textContent = 'Hide Weather';
+
+      weatherButton.textContent = "Hide Weather";
     }
   });
 
   // Subscription Toggle
-  subButton.addEventListener('click', () => {
+  subButton.addEventListener("click", () => {
     if (subVisible) {
-      subscriptionContainer.innerHTML = '';
+      subscriptionContainer.innerHTML = "";
       subVisible = false;
       weatherVisible = true;
-      subButton.textContent = 'Sign Up!';
+      subButton.textContent = "Sign Up!";
     } else {
-        if (weatherVisible) {
-      weatherContainer.innerHTML = '';
-      weatherVisible = false;
-      weatherButton.textContent = 'Show Weather';
-    }
-      displaySubscribeForm(); 
+      if (weatherVisible) {
+        weatherContainer.innerHTML = "";
+        weatherVisible = false;
+        weatherButton.textContent = "Show Weather";
+      }
+      displaySubscribeForm();
       subVisible = true;
-      
-      subButton.textContent = 'Hide Sign Up';
+
+      subButton.textContent = "Hide Sign Up";
     }
   });
 
   // Remove Saved Article
-  container.addEventListener('click', (event) => {
-    if (event.target.classList.contains('remove-btn')) {
-      const index = parseInt(event.target.getAttribute('data-index'));
+  container.addEventListener("click", (event) => {
+    if (event.target.classList.contains("remove-btn")) {
+      const index = parseInt(event.target.getAttribute("data-index"));
       RemoveSaveArticleListener(index);
-      
-      const articles = getLocalStorage('saved-articles') || [];
+
+      const articles = getLocalStorage("saved-articles") || [];
       displaySavedArticles(articles);
     }
   });
 });
-
-
-
-
-
-
-
-
 
 const weather = new FetchWeather();
 
@@ -104,12 +100,12 @@ async function main() {
 }
 
 function showCurrentWeather(forecast) {
-  const container = document.querySelector('.weather-row-other');
-  container.innerHTML = '';
+  const container = document.querySelector(".weather-row-other");
+  container.innerHTML = "";
 
   forecast.forEach((day) => {
-    const col = document.createElement('div');
-    col.className = 'text-center'; 
+    const col = document.createElement("div");
+    col.className = "text-center";
 
     col.innerHTML = `
       <div class="card p-3 shadow-sm rounded-3 weathercard">
@@ -125,10 +121,8 @@ function showCurrentWeather(forecast) {
   });
 }
 
-
-
 function displaySubscribeForm() {
-  const container = document.getElementById('subscription');
+  const container = document.getElementById("subscription");
 
   container.innerHTML = `
   <div
@@ -155,17 +149,17 @@ function displaySubscribeForm() {
     </section>
   `;
 
+  document
+    .getElementById("subscribeBtn")
+    .addEventListener("click", function (e) {
+      e.preventDefault();
+      const name = document.getElementById("inputName4").value.trim();
+      const email = document.getElementById("inputEmail4").value.trim();
 
-  document.getElementById('subscribeBtn').addEventListener('click', function (e) {
-    e.preventDefault(); 
-    const name = document.getElementById('inputName4').value.trim();
-    const email = document.getElementById('inputEmail4').value.trim();
-
-    if (name && email) {
-      alert(`Subscribed successfully!\nName: ${name}\nEmail: ${email}`);
-      
-    } else {
-      alert("Please enter both name and email.");
-    }
-  });
+      if (name && email) {
+        alert(`Subscribed successfully!\nName: ${name}\nEmail: ${email}`);
+      } else {
+        alert("Please enter both name and email.");
+      }
+    });
 }
