@@ -223,3 +223,24 @@ export function RemoveSaveArticleListener(index) {
     alert('Invalid index.');
   }
 }
+
+export function SubscriptionModel(){
+    const form = document.getElementById("subscribeForm");
+  const modal = document.getElementById("thankYouModal");
+  const closeBtn = document.getElementById("closeModal");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    if (form.checkValidity()) {
+      modal.classList.remove("hidden");
+      form.reset();
+    } else {
+      form.reportValidity();
+    }
+  });
+
+  closeBtn.addEventListener("click", () => {
+    modal.classList.add("hidden");
+  });
+}

@@ -246,7 +246,7 @@
       </div>
 
       <section class="subscribe">
-<form class="row g-3" novalidate>
+<form id="subscribeForm" class="row g-3" novalidate>
   <div class="col-md-6">
     <label for="inputName4" class="form-label">Name</label>
     <input type="text" class="form-control" id="inputName4" required minlength="1" />
@@ -261,6 +261,14 @@
   </div>
 </form>
       </section>
+
+<div id="thankYouModal" class="modal-overlay hidden">
+  <div class="modal-content">
+    <h2>Thank You!</h2>
+    <p>You’ve successfully subscribed. You’ll receive an email confirmation soon.</p>
+    <button id="closeModal" class="btn btn-dark">Close</button>
+  </div>
+</div>
     </main>
     <footer id="footer"></footer>
   </body>

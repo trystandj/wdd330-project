@@ -4,6 +4,7 @@ import {
   
   RemoveSaveArticleListener,
   displaySavedArticles,
+  SubscriptionModel
 } from "./utils.mjs";
 import FetchWeather from "./getWeather.mjs";
 
@@ -132,34 +133,22 @@ function displaySubscribeForm() {
         <h2>Subscribe</h2>
       </div>
     <section class="subscribe">
-    
-      <form class="row g-3">
-        <div class="col-md-6">
-          <label for="inputName4" class="form-label">Name</label>
-          <input type="text" class="form-control" id="inputName4" />
-        </div>
-        <div class="col-md-6">
-          <label for="inputEmail4" class="form-label">Email</label>
-          <input type="email" class="form-control" id="inputEmail4" />
-        </div>
-        <div class="subscribe-button">
-          <a href="#" class="btn btn-outline-dark" id="subscribeBtn">Subscribe</a>
-        </div>
-      </form>
+<form id="subscribeForm" class="row g-3" novalidate>
+  <div class="col-md-6">
+    <label for="inputName4" class="form-label">Name</label>
+    <input type="text" class="form-control" id="inputName4" required minlength="1" />
+  </div>
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label">Email</label>
+    <input type="email" class="form-control" id="inputEmail4" required />
+  </div>
+
+  <div class="subscribe-button">
+    <button type="submit" class="btn btn-outline-dark">Subscribe</button>
+  </div>
+</form>
     </section>
   `;
 
-  document
-    .getElementById("subscribeBtn")
-    .addEventListener("click", function (e) {
-      e.preventDefault();
-      const name = document.getElementById("inputName4").value.trim();
-      const email = document.getElementById("inputEmail4").value.trim();
+  SubscriptionModel();}
 
-      if (name && email) {
-        alert(`Subscribed successfully!\nName: ${name}\nEmail: ${email}`);
-      } else {
-        alert("Please enter both name and email.");
-      }
-    });
-}
