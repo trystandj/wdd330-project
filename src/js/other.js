@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const subButton = document.getElementById("subscriptionBTN");
   const subscriptionContainer = document.getElementById("subscription");
 
-  // Articles Toggle
+  
   viewButton.addEventListener("click", () => {
     const articles = getLocalStorage("saved-articles") || [];
 

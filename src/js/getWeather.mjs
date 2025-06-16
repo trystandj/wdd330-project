@@ -1,6 +1,7 @@
 export default class FetchWeather {
   async getForecast() {
     try {
+
       const position = await this.getLocation();
       const lat = position.coords.latitude;
       const long = position.coords.longitude;
@@ -19,7 +20,10 @@ export default class FetchWeather {
   }
 
 async getCurrent() {
+  const spinner = document.getElementById("weather-spinner");
   try {
+      spinner.classList.remove("hidden");
+spinner.classList.add("visible");
     const position = await this.getLocation();
     const lat = position.coords.latitude;
     const long = position.coords.longitude;
@@ -36,11 +40,18 @@ async getCurrent() {
       temperature: data.current_weather.temperature,
       humidity: data.hourly.relative_humidity_2m[0],
       rain: data.daily.precipitation_sum[0] 
+      
     };
+    
   } catch (err) {
     console.error(err);
     return null;
+  }finally {
+     spinner.classList.remove("visible");
+spinner.classList.add("hidden");
+   
   }
+  
 }
 
 async getForecast() {
