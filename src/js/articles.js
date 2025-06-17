@@ -4,7 +4,8 @@ import {
   HeadLineImage,
   getLocalStorage,
   setLocalStorage,
-  displayArticles,
+  displayArticles
+
 } from "./utils.mjs";
 import fetchNews from "./getNews.mjs";
 import FetchWeather from "./getWeather.mjs";
@@ -13,6 +14,7 @@ import GetWord from "./getWord.mjs";
 loadHeaderFooter();
 linkParam();
 changeHeadlineSlider();
+
 
 window.addEventListener("DOMContentLoaded", async () => {
   let category = getParam("category");
@@ -29,7 +31,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     const articles = await newsFetcher.getCategory(category);
     displayArticles(articles);
     HeadLineImage(articles);
-
+    
     document.querySelectorAll(".save-article-btn").forEach((btn) => {
       const index = btn.dataset.index;
       btn.addEventListener("click", () =>
@@ -110,15 +112,29 @@ export function addSaveArticleListener(article) {
   const savedArticles = getLocalStorage("saved-articles") || [];
 
   const exists = savedArticles.some((saved) => saved.title === article.title);
+  const modal = document.getElementById("ArticleSaved");
+  const closeBtn = document.getElementById("closeModal");
 
   if (!exists) {
     savedArticles.push(article);
     setLocalStorage("saved-articles", savedArticles);
-    alert("Article saved!");
+
+   
+    if (modal) {
+      modal.classList.remove("hidden");
+    }
+
+  
+    if (closeBtn) {
+      closeBtn.addEventListener("click", () => {
+        modal.classList.add("hidden");
+      }, { once: true }); 
+    }
   } else {
     alert("Article already saved.");
   }
 }
+
 
 async function lookupWord() {
   const input = document.getElementById("wordInput").value.trim();
@@ -147,3 +163,6 @@ document
       result.meaning.definition;
     document.getElementById("word-box").style.display = "block";
   });
+
+
+
