@@ -81,14 +81,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Remove Saved Article
   container.addEventListener("click", (event) => {
-    if (event.target.classList.contains("remove-btn")) {
-      const index = parseInt(event.target.getAttribute("data-index"));
-      RemoveSaveArticleListener(index);
+  if (event.target.classList.contains("remove-btn")) {
+    const index = parseInt(event.target.getAttribute("data-index"));
+    RemoveSaveArticleListener(index);
 
-      const articles = getLocalStorage("saved-articles") || [];
-      displaySavedArticles(articles);
+    const articles = getLocalStorage("saved-articles") || [];
+    displaySavedArticles(articles);
+
+
+    const modal = document.getElementById("ArticleRemoved");  
+    const closeBtn = document.getElementById("closeRemoveModal"); 
+
+    if (modal) {
+      modal.classList.remove("hidden");
     }
-  });
+
+    if (closeBtn) {
+      closeBtn.addEventListener("click", () => {
+        modal.classList.add("hidden");
+      }, { once: true }); 
+    }
+  }
+});
+
 });
 
 const weather = new FetchWeather();

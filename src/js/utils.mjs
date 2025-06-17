@@ -218,7 +218,7 @@ export function RemoveSaveArticleListener(index) {
   if (index >= 0 && index < savedArticles.length) {
     savedArticles.splice(index, 1);
     setLocalStorage('saved-articles', savedArticles);
-    alert('Article removed!');
+  
   } else {
     alert('Invalid index.');
   }
