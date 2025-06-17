@@ -144,7 +144,7 @@ export function displayArticles(articles) {
             src="${article.image || '/images/Breaking-News.jpg'}"
             
             alt="News Image"
-            style="height: 200px; width: 200px; object-fit: cover;"
+            style=" object-fit: cover;"
           />
         </div>
         <div class="col-md-8">

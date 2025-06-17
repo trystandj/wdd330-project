@@ -1,0 +1,167 @@
+@media screen and (max-width: 768px) {
+
+     .navbar {
+    
+    
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .header h1 {
+    position: static;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+    .header  {
+        height: 15vh;
+    margin-bottom: 10px;
+  }
+  .navbar a {
+    font-size: 1.1rem;
+    margin: 5px 0;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  footer nav {
+    margin-top: 1rem;
+  }
+
+  .sociallinks {
+    margin-top: 1rem;
+  }
+
+  .sociallinks a {
+    margin: 0 10px;
+  }
+
+  footer img {
+    width: 40px;
+    margin: 0.5rem;
+  }
+
+  .home-start,
+  .container-home,
+  .home-content {
+    flex-direction: column;
+    padding: 10px;
+    height: auto;
+  }
+
+  .home-content div img {
+    height: auto;
+    max-height: 250px;
+    max-width: 90vw;
+    padding: 10px 0;
+  }
+
+  .carousel-inner {
+    height: 50vh;
+  }
+
+  .weather-row {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .weather-row > div {
+    max-width: 90vw;
+  }
+
+  .articles,
+  .article-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    max-height: 100%;
+    position: static;
+  }
+
+  .article-cards > div {
+    width: 90%;
+  }
+
+  .subscribe {
+    flex-direction: column;
+    max-width: 90vw;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .subscribe-button {
+    margin-top: 10px;
+  }
+  .card-body p {
+    margin-bottom: 5px;
+    font-size: small;
+}
+.card {
+    max-height: 100%;
+    margin: 10px;
+    padding: 10px;
+}
+.card img{
+    height: 100px;
+    width: 100px;
+}
+
+  .card-body h5 {
+    margin-bottom: 5px;
+    font-size: medium;
+}
+.article-links ul {
+    flex-direction: row;
+    overflow-x: auto;
+    
+    gap: 10px;
+    padding: 10px;
+    margin: 0;
+   justify-content: flex-start;
+  }
+
+
+
+  .article-links a {
+    display: inline-block;
+    padding: 8px 14px;
+    font-size: 0.95rem;
+    background-color: var(--color-secondary);
+    color: white;
+    border-radius: 20px;
+    
+  }
+
+
+  .listing {
+    flex-direction: column;
+    height: 200%;
+  }
+
+  .main-listing,
+  .side-bar {
+    width: 100%;
+    height: 200vh;
+  }
+.card > div {
+    max-height: 100%;
+}
+  .side-bar {
+    position: static;
+    padding: 1rem 0.5rem;
+  }
+
+  .weather-scroll-wrapper {
+    overflow-x: scroll;
+  }
+
+  .weather-row-other > div {
+    min-width: 90vw;
+  }
+}
